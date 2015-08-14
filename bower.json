@@ -1,0 +1,7 @@
+{
+  "name": "displayHelper",
+  "version": "1.0",
+  "license": "MIT",
+  "ignore": ["**/.*"],
+  "main": "displayHelper.js"
+}
