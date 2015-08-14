@@ -31,7 +31,7 @@ var displayHelper = {
    /* *********************************************
     * Initialization functions called by the task *
     ***********************************************/
-   
+
    load: function(views) {
       displayHelper.showScore = (typeof views.grader !== 'undefined' && views.grader === true);
       displayHelper.taskParams = platform.getTaskParams();
@@ -82,7 +82,7 @@ var displayHelper = {
             "</div></a></li>\n";
       }
       tabsHtml += "</ul>";
-      var scoreHtml = "<div style='float:right;margin-top:-15px;text-align:center;font-weight:bold'>" + 
+      var scoreHtml = "<div style='float:right;margin-top:-15px;text-align:center;font-weight:bold'>" +
          "<p>Score : <span id='best_score'>0</span> points sur " + maxScores.hard + "<br/>(meilleur des trois versions)</p></div>";
       $("#tabsContainer").before(scoreHtml + tabsHtml);
       $(".tabs-menu a").click(function(event) {
@@ -92,7 +92,7 @@ var displayHelper = {
       });
       displayHelper.setLevel(initLevel);
    },
-   
+
    setLevel: function(newLevel) {
       if (displayHelper.taskLevel == newLevel) {
          return;
@@ -107,7 +107,7 @@ var displayHelper = {
       state.level = newLevel;
       task.reloadStateObject(state, true);
       task.reloadAnswerObject(answer);
-      
+
       displayHelper.taskLevel = newLevel;
       displayHelper.validate("stay");
       displayHelper.stopShowingResult();
@@ -334,7 +334,7 @@ var displayHelper = {
          if (!displayHelper.hasSolution) {
             if (displayHelper.prevSavedScore < displayHelper.submittedScore) {
                scoreDiffMsg = "Votre score est maintenant ";
-            } else if (displayHelper.prevSavedScore > displayHelper.submittedScore) { 
+            } else if (displayHelper.prevSavedScore > displayHelper.submittedScore) {
                scoreDiffMsg = "C'est moins bien qu'avant, votre score reste ";
                showRetreiveAnswer = true;
             }
@@ -392,7 +392,7 @@ var displayHelper = {
                   } else {
                      message += "Pour obtenir plus de points, passez à une version plus difficile.";
                   }
-               } else if (displayHelper.submittedScore < prevScore) { 
+               } else if (displayHelper.submittedScore < prevScore) {
                   message += "Vous aviez fait mieux avant.";
                   showRetreiveAnswer = true;
                }
@@ -403,7 +403,7 @@ var displayHelper = {
          }
       }
       if (showRetreiveAnswer) {
-         message += " <a href=\"#\" onclick='displayHelper.retreiveAnswer();return false;'>" + 
+         message += " <a href=\"#\" onclick='displayHelper.retreiveAnswer();return false;'>" +
             "Rechargez votre meilleure réponse.</a>";
       }
       return message;
@@ -452,7 +452,7 @@ var displayHelper = {
    lastSentHeight: null,
    updateMessages: function() {
       displayHelper.refreshMessages = false;
-      var suffix, prefix; 
+      var suffix, prefix;
       if (displayHelper.hasAnswerChanged) {
          suffix = "changed";
       } else {
