@@ -1,4 +1,5 @@
 'use strict';
+define(['jquery'], function ($) {
 
 /*
  * Implementation of the displayHelper API.
@@ -7,6 +8,10 @@
  *
  * See documentation for more information.
  */
+
+var platform = null;
+var task = null;
+var grader = null;
 
 var displayHelper = {
    loaded: true,
@@ -552,4 +557,12 @@ var displayHelper = {
    }
 };
 
-platform.subscribe(displayHelper);
+return function init (context) {
+   platform = context.platform;
+   task = context.task;
+   grader = context.grader;
+   window.displayHelper = displayHelper; // XXX needed for onclick handlers
+   platform.subscribe(displayHelper);
+};
+
+});
